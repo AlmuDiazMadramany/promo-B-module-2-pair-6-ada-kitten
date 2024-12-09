@@ -43,4 +43,4 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-catlist.innerHTML = kittenOne
+catlist.innerHTML = kittenOne + kittenTwo + kittenThree
