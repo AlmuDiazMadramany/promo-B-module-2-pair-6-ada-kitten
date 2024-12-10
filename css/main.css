@@ -202,9 +202,6 @@ li {
   color: white;
 }
 
-.collapsed {
-  display: none;
-}
 
 .button-cancel {
   background-color: grey;
@@ -212,4 +209,8 @@ li {
   padding: 5px;
   margin: 5px;
   color: white;
+}
+
+.collapsed {
+  display: none;
 }

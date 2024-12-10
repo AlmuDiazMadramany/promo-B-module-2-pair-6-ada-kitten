@@ -1,6 +1,10 @@
 'use strict';
 
-const catlist = document.querySelector(".js-list")
+const catlist = document.querySelector(".js-list");
+const buttonAdd = document.querySelector(".js-btn-add");
+const newForm = document.querySelector(".js-form");
+const buttonCancel = document.querySelector(".js-cancel");
+const inputCleane = document.querySelector(".input");
 
 const kittenOne = `<li class="card">
 <article>
@@ -44,3 +48,13 @@ const kittenThree = `<li class="card">
 </li>`;
 
 catlist.innerHTML = kittenOne + kittenTwo + kittenThree
+
+buttonAdd.addEventListener("click", ()=>{
+  newForm.classList.remove("collapsed");
+});
+
+buttonCancel.addEventListener("click", () => {
+  newForm.classList.add("collapsed");
+  newForm.reset(); //no funciona, comprovar como se limpia inputs
+});
+
