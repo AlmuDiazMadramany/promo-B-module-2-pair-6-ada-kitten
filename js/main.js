@@ -4,7 +4,8 @@ const catlist = document.querySelector(".js-list");
 const buttonAdd = document.querySelector(".js-btn-add");
 const newForm = document.querySelector(".js-form");
 const buttonCancel = document.querySelector(".js-cancel");
-const inputCleane = document.querySelector(".input");
+const formCats = document.querySelector(".js-formcats")
+//const inputCleane = document.querySelector(".input");
 
 const kittenOne = `<li class="card">
 <article>
@@ -55,6 +56,10 @@ buttonAdd.addEventListener("click", ()=>{
 
 buttonCancel.addEventListener("click", () => {
   newForm.classList.add("collapsed");
-  newForm.reset(); //no funciona, comprovar como se limpia inputs
+  formCats.reset();
+  //newForm.reset(); estábamos en el elemento section:
+  //newForm = document.querySelector(".js-form")
+  //<section class="new-form collapsed js-form">
+  //Entonces había que poner una clase al elemento form
 });
 
