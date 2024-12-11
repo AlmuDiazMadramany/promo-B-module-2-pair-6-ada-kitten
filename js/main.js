@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const catlist = document.querySelector(".js-list");
 const buttonAdd = document.querySelector(".js-btn-add");
@@ -6,7 +6,7 @@ const newForm = document.querySelector(".js-form");
 const buttonCancel = document.querySelector(".js-cancel");
 const formCats = document.querySelector(".js-formcats");
 const searchButton = document.querySelector(".js-button-search");
-const descrSearchText = docuemnt.querySelector(".js-in-search-desc");
+const descrSearchText = document.querySelector(".js_in_search_desc");
 const resultsContainer = document.getElementById("js-data-container");
 
 const kittenOne = `<li class="card">
@@ -68,7 +68,7 @@ buttonCancel.addEventListener("click", () => {
 
 searchButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const descrSearchText = input_search_desc.value;
+  const descrSearchText = js_in_search_desc.value;
 });
 
 const kittenDesc1 =
@@ -81,16 +81,17 @@ const kittenDesc2 =
 const kittenDesc3 =
   "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
 
-  if (kittenDesc1.includes(descrSearchText)) {
-    console.log("KittenDesc1")
-  }
   
+  if (kittenDesc1.includes(descrSearchText)) {
+    console.log("KittenDesc1");
+  }
+
   if (kittenDesc2.includes(descrSearchText)) {
-    console.log("KittenDesc1")
+    console.log("KittenDesc1");
   }
   
   if (kittenDesc3.includes(descrSearchText)) {
-    console.log("KittenDesc1")
+    console.log("KittenDesc1");
   }
 
   // PERO NO SALEN LOS GATOS
