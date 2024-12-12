@@ -71,14 +71,33 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-
-
-
 catlist.innerHTML = kittenOne + kittenTwo + kittenThree
 
-buttonAdd.addEventListener("click", ()=>{
+
+function showNewCatForm() {
   newForm.classList.remove("collapsed");
-});
+}
+
+
+function hideNewCatForm() {
+  newForm.classList.add("collapsed");
+}
+
+// tenemos las dos funciones definidas arriba. creamos una función que contenga el evento click. Dentro de la función del evento, ponemos el if, else. 
+//En el if i else ponemos las dos funciones que tenemos arriba definidas para que ocurra como el elemento que queremos. 
+function handleClickNewCatForm (event) {
+  event.preventDefault();
+  if (newForm.classList.contains("collapsed")){
+    showNewCatForm()
+
+   } else {
+    hideNewCatForm()
+   };
+
+};
+
+//resumen de toda la función de arriba --> cuando se apriete al botón miramos si tiene la classe i si la tiene la quitamos, si no la tiene, la ponemos. 
+buttonAdd.addEventListener("click", handleClickNewCatForm);
 
 buttonCancel.addEventListener("click", () => {
   newForm.classList.add("collapsed");
@@ -126,3 +145,9 @@ let breedText = " ";
 //let kittenName = "whiskers";
 //kittenName = kittenName.toUpperCase();  // Convierte a mayúsculas
 //console.log(kittenName);  // Output: WHISKERS
+
+
+
+
+
+
