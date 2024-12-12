@@ -6,49 +6,73 @@ const newForm = document.querySelector(".js-form");
 const buttonCancel = document.querySelector(".js-cancel");
 const formCats = document.querySelector(".js-formcats");
 const searchButton = document.querySelector(".js-button-search");
-const descrSearchText = document.querySelector(".js_in_search_desc");
-const resultsContainer = document.getElementById("js-data-container");
+const input_search_desc = document.querySelector(".js_in_search_desc");
+
+
+// kittenOne
+
+const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
+const kittenName1= "Anastacio";
+const kittenRace1 = "Siamés";
+const kittenDesc1 =
+  "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
+
+  // kittenTwo
+  const kittenImage2 = "https://dev.adalab.es/sphynx-gato.webp";
+  const kittenName2= "Fiona";
+  const kittenRace2 = "Sphynx";
+  const kittenDesc2 =
+  "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
+
+  // kittenThree
+  const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp" ;
+const kittenName3= "Cielo";
+const kittenRace3 = "Maine Coon";
+const kittenDesc3 =
+  "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
+
+
+
 
 const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
-    src="https://dev.adalab.es/gato-siames.webp"
-    alt="gatito"
-  />
-  <h3 class="card_title">Anastacio</h3>
-  <h4 class="card_race">Siamés</h4>
-  <p class="card_description">
-            Porte elegante, su patrón de color tan característico y sus ojos
-            de un azul intenso, pero su historia se remonta a Asía al menos
-            hace 500 años, donde tuvo su origen muy posiblemente.
-   </p>
+    src="${kittenImage1}"
+    alt="gatito1"/>
+  <h3 class="card_title">${kittenName1}</h3>
+  <h4 class="card_race">${kittenRace1}</h4>
+  <p class="card_description">${kittenDesc1}</p>
 </article>
 </li>`;
 
 
 const kittenTwo = `<li class="card">
 <article>
-    <img class="card_img" src="https://dev.adalab.es/sphynx-gato.webp" alt="sphynx-cat" />
-    <h3 class="card_title">Fiona</h3>
-    <h4 class="card_race">Sphynx</h4>
-    <p class="card_description">
-            Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.
-    </p>
-
+  <img
+    class="card_img"
+    src="${kittenImage2}"
+    alt="gatito1"/>
+  <h3 class="card_title">${kittenName2}</h3>
+  <h4 class="card_race">${kittenRace2}</h4>
+  <p class="card_description">${kittenDesc2}</p>
 </article>
 </li>`;
 
 const kittenThree = `<li class="card">
 <article>
-    <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
-    <h3 class="card_title">Cielo</h3>
-    <h4 class="card_race">Maine Coon</h4>
-    <p class="card_description"> Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.
-        </p>
-
+  <img
+    class="card_img"
+    src="${kittenImage3}"
+    alt="gatito1"/>
+  <h3 class="card_title">${kittenName3}</h3>
+  <h4 class="card_race">${kittenRace3}</h4>
+  <p class="card_description">${kittenDesc3}</p>
 </article>
 </li>`;
+
+
+
 
 catlist.innerHTML = kittenOne + kittenTwo + kittenThree
 
@@ -68,30 +92,37 @@ buttonCancel.addEventListener("click", () => {
 
 searchButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const descrSearchText = js_in_search_desc.value;
-});
+  const descrSearchText = input_search_desc.value;
 
-const kittenDesc1 =
-  "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
-
-
-const kittenDesc2 =
-  "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
-
-const kittenDesc3 =
-  "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
-
-  
   if (kittenDesc1.includes(descrSearchText)) {
     console.log("KittenDesc1");
+    catlist.innerHTML = kittenOne;
   }
 
   if (kittenDesc2.includes(descrSearchText)) {
-    console.log("KittenDesc1");
+    console.log("KittenDesc2");
+    catlist.innerHTML = kittenTwo;
   }
   
   if (kittenDesc3.includes(descrSearchText)) {
-    console.log("KittenDesc1");
+    console.log("KittenDesc3");
+    catlist.innerHTML = kittenThree;
   }
 
-  // PERO NO SALEN LOS GATOS
+});
+
+
+let breedText = " ";
+  if (kittenRace1 === "") {
+    breedText = `Uy que despiste, no sabemos su raza`;
+  } else {
+    breedText = kittenRace1;
+  }
+;
+
+
+
+
+//let kittenName = "whiskers";
+//kittenName = kittenName.toUpperCase();  // Convierte a mayúsculas
+//console.log(kittenName);  // Output: WHISKERS
