@@ -7,7 +7,11 @@ const buttonCancel = document.querySelector(".js-cancel");
 const formCats = document.querySelector(".js-formcats");
 const searchButton = document.querySelector(".js-button-search");
 const input_search_desc = document.querySelector(".js_in_search_desc");
-
+const kittenImage = document.querySelector (".js-kittenImage");
+const kittenName = document.querySelector (".js-kittenName");
+const kittenRace = document.querySelector (".js-kittenRace");
+const kittenDesc = document.querySelector (".js-kittenDesc");
+const buttonSubmit = document.querySelector (".js-buttonSubmit");
 
 // kittenOne
 
@@ -26,9 +30,9 @@ const kittenDesc1 =
 
   // kittenThree
   const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp" ;
-const kittenName3= "Cielo";
-const kittenRace3 = "Maine Coon";
-const kittenDesc3 =
+  const kittenName3= "Cielo";
+  const kittenRace3 = "Maine Coon";
+  const kittenDesc3 =
   "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
 
 
@@ -138,6 +142,31 @@ let breedText = " ";
     breedText = kittenRace1;
   }
 ;
+
+
+
+function renderKitten (event) {
+  event.preventDefault();
+  const valuekittenImage = (kittenImage.value);
+  const valuekittenName = (kittenName.value);
+  const valuekittenRace = (kittenRace.value);
+  const valuekittenDesc = (kittenDesc.value);
+
+  catlist.innerHTML +=
+  `<li class="card">
+    <article>
+      <img class="card_img" src="${valuekittenImage}" alt="gatito1"/>
+      <h3 class="card_title">${valuekittenName}</h3>
+      <h4 class="card_race">${valuekittenRace}</h4>
+      <p class="card_description">${valuekittenDesc}</p>
+    </article>
+    </li>`;
+ 
+}
+
+
+buttonSubmit.addEventListener("click", renderKitten);
+
 
 
 
