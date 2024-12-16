@@ -176,7 +176,51 @@ buttonSubmit.addEventListener("click", renderKitten);
 //console.log(kittenName);  // Output: WHISKERS
 
 
+//funciones II
+//Creamos constante que coja el valor del input desc
+const descrSearchText = input_search_desc.value;
+const race1 = document.querySelector(".js-race")
 
+
+//cramos función para que a la hora de buscar por descripción, aparezca el gato que tenga una descripción que coincida
+const filterKitten = (event) => {
+  if (kittenDesc1.includes(descrSearchText)){
+    listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.includes(descrSearchText)){
+    listElement.innerHTML += kittenTwo;
+  }
+  if(kittenDesc3.includes(descrSearchText)){
+    listElement.innerHTML += kittenThree;
+  }
+};
+
+
+
+
+//ejecutamos el evento sobre el botón de buscar
+searchButton.addEventListener("click", handleClickKitten);
+
+
+
+//Tenemos dudas sobre el ejercicio bonus de funciones II. No tenemos claro como declarar la función para que nos salgan los gatos cuando buscamos su raza
+//Nos sale el 3r gato pongamos lo que pongamos. Con la descripción nos sale bien.
+//Podemos hacer dos eventos en un mismo elemento? (en el botón buscar, darle información para la descricpión y para la raza)
+
+
+// const handleClickKitten(event) => {
+//   const raceSearch = race1.value;
+//   if (raceSearch === kittenRace1 || raceSearch === kittenRace2 || raceSearch === kittenRace3) {
+//     return raceSearch;
+//   } else {
+//     return 'Uy que despiste, no sabemos su raza';
+//   }
+// }
+
+// function renderRace () {
+
+
+// searchButton.addEventListener("click", renderRace);
 
 
 
