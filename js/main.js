@@ -13,6 +13,48 @@ const kittenRace = document.querySelector (".js-kittenRace");
 const kittenDesc = document.querySelector (".js-kittenDesc");
 const buttonSubmit = document.querySelector (".js-buttonSubmit");
 
+function showNewCatForm() {
+  newForm.classList.remove("collapsed");
+}
+
+function hideNewCatForm() {
+  newForm.classList.add("collapsed");
+}
+
+function handleClickNewCatForm (event) {
+  event.preventDefault();
+  if (newForm.classList.contains("collapsed")){
+    showNewCatForm()
+
+   } else {
+    hideNewCatForm()
+   };
+
+};
+
+buttonAdd.addEventListener("click", handleClickNewCatForm);
+
+buttonCancel.addEventListener("click", () => {
+  newForm.classList.add("collapsed");
+  formCats.reset()});
+
+
+function renderNewKitten (event) {
+    event.preventDefault();
+    const newKittenData ={
+      image : kittenImage.value,
+      name : kittenName.value,
+      race : kittenRace.value,
+      desc : kittenDesc.value,
+    };
+  // 
+  }
+  
+  // catlist.innerHTML += renderNewKitten (newKittenData);
+  
+buttonSubmit.addEventListener("click", renderNewKitten);
+
+
 // kittenOne
 const kittenData_1 ={
   image : "https://dev.adalab.es/gato-siames.webp",
@@ -20,16 +62,12 @@ const kittenData_1 ={
   race : "Siamés",
   desc : "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.",
 };
-
-// kittenTwo
-  const kittenData_2 ={
+const kittenData_2 ={
     image : "https://dev.adalab.es/sphynx-gato.webp",
     name : "Fiona",
     race : "Sphynx",
     desc : "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.",
   };
-
-// kittenThree
   const kittenData_3 ={
     image : "https://dev.adalab.es/maine-coon-cat.webp",
     name : "Cielo",
@@ -37,6 +75,7 @@ const kittenData_1 ={
     desc : "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.",
   };
 
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
 
 const renderKitten = (kittenData) => {
   const li = `
@@ -51,70 +90,22 @@ const renderKitten = (kittenData) => {
           <p class="card_description">${kittenData.desc}</p>
         </article>
         </li>`;
- return li
-}
-
-catlist.innerHTML = renderKitten (kittenData_1) + renderKitten (kittenData_2) + renderKitten (kittenData_3);
-
-// FUNCION PARA AÑADIR GATOS NUEVOS: 
-
-function renderNewKitten (event) {
-  event.preventDefault();
-  const kittenData ={
-    image : kittenImage.value,
-    name : kittenName.value,
-    race : kittenRace.value,
-    desc : kittenDesc.value,
-  };
- 
-}
-
-catlist.innerHTML += renderNewKitten (kittenData);
-
-buttonSubmit.addEventListener("click", renderNewKitten);
-
-
-// EL FORMULARIO DE AÑADIR GATO
-
-function showNewCatForm() {
-  newForm.classList.remove("collapsed");
-}
-
-function hideNewCatForm() {
-  newForm.classList.add("collapsed");
-}
-
-// tenemos las dos funciones definidas arriba. creamos una función que contenga el evento click. Dentro de la función del evento, ponemos el if, else. 
-//En el if i else ponemos las dos funciones que tenemos arriba definidas para que ocurra como el elemento que queremos. 
-function handleClickNewCatForm (event) {
-  event.preventDefault();
-  if (newForm.classList.contains("collapsed")){
-    showNewCatForm()
-
-   } else {
-    hideNewCatForm()
-   };
-
+    return li; 
 };
 
-//resumen de toda la función de arriba --> cuando se apriete al botón miramos si tiene la classe i si la tiene la quitamos, si no la tiene, la ponemos. 
-buttonAdd.addEventListener("click", handleClickNewCatForm);
+catlist.innerHTML = renderKitten (kittenData);
+// 
+// catlist.innerHTML = renderKitten (kittenData_1) + renderKitten (kittenData_2) + renderKitten (kittenData_3);
 
-buttonCancel.addEventListener("click", () => {
-  newForm.classList.add("collapsed");
-  formCats.reset();
-  //newForm.reset(); estábamos en el elemento section:
-  //newForm = document.querySelector(".js-form")
-  //<section class="new-form collapsed js-form">
-  //Entonces había que poner una clase al elemento form
-});
 
+const descrSearchText = input_search_desc.value;
+const race1 = document.querySelector(".js-race")
 
 searchButton.addEventListener("click", (event) => {
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
 
-  if (kittenDesc1.includes(descrSearchText)) {
+  if (kittenDesc[0].includes(descrSearchText)) {
     console.log("KittenDesc1");
     catlist.innerHTML = kittenOne;
   }
@@ -132,22 +123,11 @@ searchButton.addEventListener("click", (event) => {
 });
 
 /*
-let breedText = " ";
-  if (kittenRace1 === "") {
-    breedText = `Uy que despiste, no sabemos su raza`;
-  } else {
-    breedText = kittenRace1;
-  }
-;
-*/
 
 
 
 
 
-//let kittenName = "whiskers";
-//kittenName = kittenName.toUpperCase();  // Convierte a mayúsculas
-//console.log(kittenName);  // Output: WHISKERS
 
 
 //funciones II
